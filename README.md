@@ -1,7 +1,7 @@
 # RESTful API Guideline
 
 ## Overview
-DOT Indonesia has a guideline as well as standardization in making RESTful API. This is about how to design and develop RESTful API for internal developers or vendor partners in order that to ensure that APIs are developed according to standards.
+Heylaw has a guideline as well as standardization in making RESTful API. This is about how to design and develop RESTful API for internal developers or vendor partners in order that to ensure that APIs are developed according to standards.
 
 ## URL Design
 When determining an API’s URL structure, it is helpful to consider that all of its resources exist in a single “reference document” in which each resource is addressable at a unique path. Resources are grouped by type at the top level of this document. Individual resources are keyed by ID within these typed collections. Attributes and links within individual resources are uniquely addressable according to the resource object structure described above.
@@ -53,7 +53,6 @@ Primary data **MUST** be either:
 For example, the following primary data is a single resource object:
 ```
 {
-    "success": true,
     "message": "This is successful message",
     "data": {
         "id": 1,
@@ -66,7 +65,6 @@ For example, the following primary data is a single resource object:
 The following primary data is an array of resource objects:
 ```
 {
-    "success": true,
     "message": "This is successful message",
     "data": [
         {
@@ -92,7 +90,6 @@ Error objects provide additional information about problems encountered while pe
 The following example is format usually used for failed response with status code 400, 401, 404, or 500:
 ```
 {
-    "success": false,
     "error-code": null, /* or optional error payload, eg: 3001, 3002, etc. */
     "errors": [],
     "message": "Error xyz has occurred"
@@ -106,7 +103,6 @@ For returning multiple validation problems, it **MUST** return error messages in
 Here's the example for multiple validation problems only contains value of error:
 ```
 {
-    "success": false,
     "error-code": null, /* or optional error payload, eg: 3001, 3002, etc. */
     "errors": [
         "The email must be a valid email",
@@ -120,7 +116,6 @@ Here's the example for multiple validation problems only contains value of error
 Here's the example for multiple validation problems contains field and value of error:
 ```
 {
-    "success": false,
     "error-code": null, /* or optional error payload, eg: 3001, 3002, etc. */
     "errors": {
         "email": "The email must be a valid email",
@@ -176,7 +171,3 @@ This means that the server has encountered a situation it doesn't know how to ha
 **502 Bad Gateway**
 
 This error response means that the server, while working as a gateway to get a response needed to handle the request, got an invalid response. Or in short, when our server is down.
-
-## Error Code
-## Panduan Kontribusi
-
